@@ -1,37 +1,34 @@
 <?php
 
-class Commands {
+namespace Controller;
 
-    private function executeCommand(string $commandName, bool $root = false):void {
-        $commandString = 'sh ' . __DIR__ . '/bash/' . $commandName . '.sh';
+class Commands extends ExecuteCommand {
 
-        // If need root
-        $commandString .= $root ? ' ' . $_ENV['SUDO_PASSWORD'] : '';
-
-        exec($commandString);
+    final public function refresh():void {
     }
 
-    public final function shutdown():void {
+    final public function shutdown():void {
         $this->executeCommand('shutdown', true);
     }
 
-    public final function ymp():void {
+    final public function ymp():void {
         $this->executeCommand('ymp');
     }
 
-    public final function soundUp():void {
+    final public function soundUp():void {
         $this->executeCommand('soundUp');
     }
 
-    public final function soundDown():void {
+    final public function soundDown():void {
         $this->executeCommand('soundDown');
     }
 
-    public final function soundPlayPause():void {
+    final public function soundPlayPause():void {
         $this->executeCommand('soundPlayPause');
     }
 
-    public final function playerNext():void {
+    final public function playerNext():void {
         $this->executeCommand('playerNext');
     }
+
 }
