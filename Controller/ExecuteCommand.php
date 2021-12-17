@@ -4,9 +4,15 @@ class ExecuteCommand {
 
     private string $password;
 
+    private function getDir(): string
+    {
+        $reflector = new ReflectionClass(get_class($this));
+        return dirname($reflector->getFileName());
+    }
+
     final public function executeCommand(string $commandName, bool $root = false):void {
 
-        $commandString = 'sh ' . __DIR__ . '/bash/' . $commandName . '.sh';
+        $commandString = 'sh ' . $this->getDir() . '/bash/' . $commandName . '.sh';
 
         // If need root but not defined
         if ($root && $this->password === '') {
