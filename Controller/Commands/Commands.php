@@ -1,7 +1,5 @@
 <?php
 
-namespace Controller;
-
 class Commands extends ExecuteCommand {
 
     final public function refresh():void {

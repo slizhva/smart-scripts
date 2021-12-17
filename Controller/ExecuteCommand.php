@@ -1,9 +1,5 @@
 <?php
 
-namespace Controller;
-
-use RuntimeException;
-
 class ExecuteCommand {
 
     private string $password;

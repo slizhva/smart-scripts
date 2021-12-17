@@ -1,7 +1,5 @@
 <?php
 
-namespace Controller;
-
 class Notifications extends ExecuteCommand {
 
     final public function call():void {
